@@ -1,10 +1,10 @@
-//manual approach (create package.json file in the root folder, create properties, etc)
-//npm init (step by step procedure, press enter to skip)
-//npm init -y (no procedure, every property comes default)
+const http = require("http");
 
-const _ = require("lodash");
+const server = http.createServer((req, res) => {
+    console.log("request event");
+    res.end("<h1>Hello World</h1>");
+});
 
-const items = [1, [2, [3, 4]]];
-const newItems = _.flattenDeep(items);
-console.log(newItems); // [1,2,3,4]
-console.log("Hello People");
+server.listen(3000, () => {
+    console.log("Server is listening to port 3000");
+});
